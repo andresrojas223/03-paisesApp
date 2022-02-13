@@ -1,0 +1,82 @@
+<div *ngIf="!pais; else divPais" class="alert alert-info ">
+
+     Espere por favor...
+
+
+</div>
+
+
+<ng-template #divPais>
+
+
+
+<div *ngFor="let pais  of pais" class="row">
+
+    <div class="col-12">
+
+      <h1><small>Pais {{pais.name.common}}</small></h1>
+
+    </div>
+  
+
+</div>
+
+
+
+<div class="row">
+
+    <div *ngFor="let pais of pais" class="col-4">
+
+      <h3>Banderas</h3>
+      <img class="img" [src]="pais.flags.svg" alt="">
+     
+    </div>
+  
+    <div class="col">
+
+      <h3>Informacion</h3>
+      <ul class="list-group-item">
+
+               <li *ngFor="let pais of pais" class="list-group-item" >
+
+                   Poblacion: {{pais.population | number}}
+
+               </li>
+
+               
+               <li *ngFor="let pais of pais" class="list-group-item" >
+
+                    Region: {{pais.region }}
+
+                </li>
+
+                <li *ngFor="let pais of pais" class="list-group-item" >
+
+                    Codigo alpha3: {{pais.population | number}}
+
+                </li>
+
+      </ul>
+
+
+    </div>
+
+</div>
+
+<h3>Traducciones</h3>
+  <div class="row">
+        <div *ngFor="let pais of pais" class="col">
+
+           <span class="tamaño"> {{pais.translations.de}}</span>
+           <span class="tamaño"> {{pais.translations.fr}}</span>
+           <span class="tamaño"> {{pais.translations.ja}}</span>
+           <span class="tamaño"> {{pais.translations.br}}</span>
+
+        </div>
+
+
+
+  </div>
+  
+
+</ng-template>
